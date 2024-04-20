@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         Debug.Log(currentHealth);
-        
+        //makes sure the health is actually at 100 when starting
     }
 
     public void TakeDamage(int damage)
@@ -29,18 +29,12 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Heal(int healAmount)
-    {
-        currentHealth += healAmount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        
-    }
 
     void Die()
     {
-        // Death behavior
+        // tells you if you died
         Debug.Log("Player has died.");
-        // You can add here any behavior you want to perform when the player dies.
+        
     }
 
     
