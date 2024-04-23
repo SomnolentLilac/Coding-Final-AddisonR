@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour
 {
-    public GameObject projectilePrefab;
-    public Transform shootPoint;
-    public float shootInterval = 1f;
-    public int damage = 10;
+   [SerializeField] GameObject projectilePrefab;
+   [SerializeField] Transform shootPoint;
+   [SerializeField] float shootInterval = 1f;
+   [SerializeField] int damage = 10;
 
     private float shootTimer = 0f;
 
@@ -28,7 +26,7 @@ public class EnemyShoot : MonoBehaviour
     void Shoot()
     {
         //creates a copy of the projectile prefab and sets the damage it'll do to the player
-        GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity);
+        GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, Quaternion.identity); //Feedback: Good opportunity to use object pooling from the software design patterns lesson.
         Projectile projectileComponent = projectile.GetComponent<Projectile>();
         if (projectileComponent != null)
         {
